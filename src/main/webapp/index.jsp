@@ -22,21 +22,27 @@
   <div id="main">
     <div id="sideleft">
     	<center>Left Column</center>
-    	<div class="draggablebox"></div>
-    	<div class="draggablebox"></div>
-    	<div class="draggablebox"></div>
+    	<div class="draggablebox" id="draggableid1">
+			<img src="img/apple.jpg" />
+		</div>
+    	<div class="draggablebox" id="draggableid2">
+			<img src="img/banana.jpg" />
+		</div>
+    	<div class="draggablebox" id="draggableid3">
+			<img src="img/orange.jpg" />
+		</div>
     </div>
     <div id="sideright">
     	<center>Right Column</center>
-    	<div class="box"></div>
-    	<div class="box"></div>
-    	<div class="box"></div>
+    	<div class="box" style="background-color:yellow;"></div>
+    	<div class="box" style="background-color:orange;"></div>
+    	<div class="box" style="background-color:red;"></div>
     </div>
     <div id="content">
     	<center>Content</center>
-    	<div class="droppablebox"></div>
-    	<div class="droppablebox"></div>
-    	<div class="droppablebox"></div>
+    	<div class="droppablebox" id="droppableid1"></div>
+    	<div class="droppablebox" id="droppableid2"></div>
+    	<div class="droppablebox" id="droppableid3"></div>
     </div>
   </div>
 </div>

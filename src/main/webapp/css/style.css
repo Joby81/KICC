@@ -42,6 +42,9 @@
     font-size: 0;
     line-height: 0
 }
+.draggablebox img {
+	width: 100%;
+}
 ul {
     list-style-type: none;
     margin: 0;
