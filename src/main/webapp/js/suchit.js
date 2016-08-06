@@ -40,6 +40,7 @@ $(document).ready(function() {
 	    	  },
 			out: function(event, ui) {
 				dropped1 = false;
+				value1 = false;
 				displayResult();
 			}  
 	    });
@@ -63,6 +64,7 @@ $(document).ready(function() {
 	    	  },
 			out: function(event, ui) {
 				dropped2 = false;
+				value2 = false;
 				displayResult();
 			}  
 	    });
@@ -86,6 +88,7 @@ $(document).ready(function() {
 	    	  },
 			out: function(event, ui) {
 				dropped3 = false;
+				value3 = false;
 				displayResult();
 			}  
 	    });
