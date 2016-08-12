@@ -11,10 +11,10 @@
     padding-left: 10px;
 }
 #game {
-    width: 500px;
-    height: 500px;
-    background-image: linear-gradient(transparent 49px, #888 49px, transparent 50px), linear-gradient(90deg, transparent 49px, #888 49px, transparent 50px);
-  	background-size: 50px 50px, 50px 50px;
+    width: 400px;
+    height: 400px;
+    background-image: linear-gradient(transparent 39px, #888 39px, transparent 40px), linear-gradient(90deg, transparent 39px, #888 39px, transparent 40px);
+  	background-size: 40px 40px, 40px 40px;
   	border-style: solid;
   	float: left;
   	margin-right: 10px;
@@ -22,27 +22,38 @@
 
 #optionBox {
 	width: 250px;
-    height: 500px;
+    height: 400px;
  	border-style: solid;
  	float: left;   
  	margin-right: 10px;
 }
 
 #functionBox {
-	width: 400px;
-    height: 500px;
+	width: 280px;
+    height: 400px;
  	border-style: solid;
  	float: left;   	
  	margin-right: 10px;
 }
 
 #block {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     outline: 1px solid;
     float: left;
   	transition: 1s;
   	background-color: red;
+}
+
+.option {
+  width: 100px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-style: solid;
+    background-color: orange;
 }
 
 #character {
@@ -54,32 +65,85 @@
   	transition: 1s;
 }	
 </style>
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
 <script type="text/javascript">
-	function coords(dx, dy) {
-	  var cx = document.getElementById('block').style.marginLeft;
-	  var cy = document.getElementById('block').style.marginTop;
-	  cx = parseInt(cx) + 50 * dx;
-	  cy = parseInt(cy) + 50 * dy;
-	  if (cx < 0) cx = 0;
-	  if (cy < 0) cy = 0;
-	  if (cx > 450) cx = 450;
-	  if (cy > 450) cy = 450;
-	  document.getElementById('block').style.marginLeft = cx + 'px';
-	  document.getElementById('block').style.marginTop = cy + 'px';
-}
-
+$(document).ready(function() {
+  $( function() {
+    $('#upButton').click(function() {
+       coords('0','-1');
+    });
+    $('#downButton').click(function() {
+        coords('0','1');
+    });
+    $('#leftButton').click(function() {
+        coords('-1','0');
+    });
+    $('#rightButton').click(function() {
+        coords('1','0');
+    });
+  	function coords(dx, dy) {
+  	  var cx = document.getElementById('block').style.marginLeft;
+  	  var cy = document.getElementById('block').style.marginTop;
+  	  cx = parseInt(cx) + 40 * dx;
+  	  cy = parseInt(cy) + 40 * dy;
+  	  if (cx < 0) cx = 0;
+  	  if (cy < 0) cy = 0;
+  	  if (cx > 360) cx = 360;
+  	  if (cy > 360) cy = 360;
+  	  document.getElementById('block').style.marginLeft = cx + 'px';
+  	  document.getElementById('block').style.marginTop = cy + 'px';
+    }
+    $( ".option" ).draggable({
+        revert : function(event, ui) {
+              $(this).data("uiDraggable").originalPosition = {
+                  top : 0,
+                  left : 0
+              };
+              return !event;
+          },
+          snap: true,
+            snapMode: "inner",
+            snapTolerance: 30,
+            helper: "clone"
+      });
+    $( "#functionBox" ).droppable({
+      drop: function (event, ui) {
+            var $canvas = $(this);
+            if (!ui.draggable.hasClass('canvas-element')) {
+                var $canvasElement = ui.draggable.clone();
+                $canvasElement.addClass('canvas-element');
+                $canvasElement.draggable({
+                    containment: '#container'
+                });
+                $canvas.append($canvasElement);
+                $canvasElement.css({
+                    left: (ui.position.left),
+                    top: (ui.position.top),
+                    position: 'absolute'
+                });
+            }
+        }
+    });
+  });
+});
 </script>
 </head>
 <body>
-<button onclick="coords('0','-1')" style="margin-left: 50px;">up</button>
-  <button onclick="coords('0','1')">down</button>
-  <button onclick="coords('-1','0')">left</button>
-  <button onclick="coords('1','0')">right</button>
+  <button id="upButton" style="margin-left: 50px;">up</button>
+  <button id="downButton">down</button>
+  <button id="leftButton">left</button>
+  <button id="rightButton">right</button>
 <div id="panel">
 <div id="game">
-	<div id="block" style="margin-left: 50px; margin-top: 50px;"></div>
+	<div id="block" style="margin-left: 40px; margin-top: 40px;"></div>
 </div>
-<div id="optionBox"></div>
+<div id="optionBox">
+  <div id="direction" class="option">Left</div>
+  <div id="direction" class="option">Right</div>
+  <div id="direction" class="option">Up</div>
+  <div id="direction" class="option">Down</div>
+</div>
 <div id="functionBox"></div>
 </div>
 </body>
