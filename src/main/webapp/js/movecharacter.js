@@ -31,9 +31,11 @@ $(document).ready(function() {
     function test(){
       var scope = angular.element($("body")).scope();
       var newvalue = scope.functionList;
+      var count = 0;
       for(var temp in newvalue) {
         var step = JSON.parse(temp);
-        move(newvalue[step].id);
+        count = count + 2;
+        setTimeout(move,count*1000,newvalue[step].id);
       }
    }
 
@@ -48,15 +50,6 @@ $(document).ready(function() {
         coords('1','0');
       }
    }
-
-   function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-      if ((new Date().getTime() - start) > milliseconds){
-        break;
-      }
-    }
-  }
     
   });
 });
