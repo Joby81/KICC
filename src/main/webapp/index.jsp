@@ -18,7 +18,6 @@
   <li style="float:right"><a href="#about">About</a></li>
 </ul>
 </div>
-<h2>Tell those musician to play some action music because it is on !!</h2>
 <table>
 <tr>
 <td>
