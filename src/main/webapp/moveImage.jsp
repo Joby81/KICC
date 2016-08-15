@@ -136,7 +136,9 @@ $(document).ready(function() {
   <button id="rightButton">right</button>
 <div id="panel">
 <div id="game">
-	<div id="block" style="margin-left: 40px; margin-top: 40px;"></div>
+	<div id="block" style="margin-left: 40px; margin-top: 40px;">
+		<img src="img/walking.gif" />
+	</div>
 </div>
 <div id="optionBox">
   <div id="direction" class="option">Left</div>
