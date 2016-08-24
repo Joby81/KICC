@@ -10,6 +10,7 @@
 <script src="js/suchit.js"></script>
 </head>
 <body>
+DB:<%=System.getProperty("MYSQL_DATABASE") %>
 <div>
 <ul>
   <li><a class="active" href="#home">Home</a></li>
