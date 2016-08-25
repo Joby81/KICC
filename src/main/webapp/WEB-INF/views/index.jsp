@@ -59,5 +59,54 @@
 			</td>
 		</tr>
 	</table>
+	<script type="text/javascript">
+	/*
+	//###################################### Document ##############################
+	
+	How can you make backend calls easly ?
+	  You can do 3 calls basically 
+	  1. doCall("actionName", paramsToServer, "callBackJsMethod"); // PREFERRED it will switch your call between http or socket according to your browser capablity
+	  2. doAjaxCall("actionName", paramsToServer, "callBackJsMethod"); //It will always uses ajax http call
+	  3. doSocketCall("actionName", paramsToServer, "callBackJsMethod"); // It will always uses websocket call
+
+	  actionName=The name which needed to be mapped in ProcessorFactory
+	  paramsToServer=Parameters to be passed to the backend, You can read it from RequestObj (@Ref TestProcessor)
+	  callBackJsMethod=On after Async call to the backend this method will be called backe with JSON data. 
+	  
+	  onSocketOpen(){} // you can write this method by default = This method will be called on after initilizing your socket connection .
+	  You can use this method every page.
+
+	  Backend reference classes : 
+		  how to write custom data processor : 
+			  1) Create a class which implement  com.comprosoft.kicc.core.processor.DataProcessor interface
+		  	  2) add the class into ProcessorFactory  (@Ref: check "TestCall" if condition)
+
+
+	 */
+
+	 //###################################### EXAMPLE IMPLEMENTATION ##############################
+		function onSocketOpen() {
+			 // will call normal http call
+			 $.doAjaxCall("TestCall", { name : "World" }, "doAjaxCall");
+		 	 
+			 // It will switch automatically websocket/ajax call ( by default websocket)
+			 $.doCall("TestCall", { name : "World" }, "doCall");
+			 
+			 //will call websocket call
+			 $.doSocketCall("TestCall", { name : "World" }, "doSocketCall");
+		}
+	
+		function doSocketCall(jsonData){
+			console.log("doSocketCall : " + jsonData.message);
+		}
+		function doAjaxCall(jsonData){
+			console.log("doAjaxCall : " + jsonData.message);
+		}
+		function doCall(jsonData){
+			console.log("doCall : " + jsonData.message);
+		}
+	//#################################### END OF EXAMPLE IMPLEMENTATION ###########################
+		
+	</script>
 </body>
 </html>

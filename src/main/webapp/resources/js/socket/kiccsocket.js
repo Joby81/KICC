@@ -68,24 +68,3 @@
 	}
 
 }(jQuery));
-
-function onSocketOpen() {
-	 // will call normal http call
-	 $.doAjaxCall("TestCall", { name : "World" }, "doAjaxCall");
- 	 
-	 // It will switch automatically websocket/ajax call ( by default websocket)
-	 $.doCall("TestCall", { name : "World" }, "doCall");
-	 
-	 //will call websocket call
-	 $.doSocketCall("TestCall", { name : "World" }, "doSocketCall");
-}
-
-function doSocketCall(jsonData){
-	console.log("doSocketCall : " + jsonData.message);
-}
-function doAjaxCall(jsonData){
-	console.log("doAjaxCall : " + jsonData.message);
-}
-function doCall(jsonData){
-	console.log("doCall : " + jsonData.message);
-}
