@@ -14,10 +14,6 @@
 <script src="resources/js/app.js"></script>
 </head>
 <body ng-app="drag-and-drop" ng-controller="oneCtrl">
-<button id="upButton" style="margin-left: 50px;">up</button>
-  <button id="downButton">down</button>
-  <button id="leftButton">left</button>
-  <button id="rightButton">right</button>
   <button id="executeButton">Execute</button>
 <div id="panel">
 <div id="game">
