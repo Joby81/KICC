@@ -1,10 +1,10 @@
-var App = angular.module('drag-and-drop', ['ngDragDrop']);
+var App = angular.module('drag-and-drop', ['ngDragDrop','ui.bootstrap']);
 
 App.controller('oneCtrl', function($scope, $timeout) {
-		$scope.directionList = [{'name': 'up','id': '1'},
-		{'name': 'down','id': '2'},
-		{'name': 'Left','id': '3'},
-		{'name': 'right','id': '4'}];
+		$scope.directionList = [{'name': 'MOVE UP','id': '1'},
+		{'name': 'MOVE DOWN','id': '2'},
+		{'name': 'MOVE LEFT','id': '3'},
+		{'name': 'MOVE RIGHT','id': '4'}];
 
 		$scope.functionList = [];
 
