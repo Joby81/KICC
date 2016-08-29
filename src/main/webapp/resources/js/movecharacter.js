@@ -75,13 +75,13 @@ $(function() {
             $block.trigger('reached');
         } else if( current.top == ship2.top && current.left == ship2.left ) {
             $("#blockShip").attr("src","");
-            $("#ship2explode").attr("src","explode.gif");
+            $("#ship2explode").attr("src","resources/css/explode.gif");
             setTimeout(function() {
                 location.reload();
             },1200);
         } else if( current.top == ship3.top && current.left == ship3.left ) {
             $("#blockShip").attr("src","");
-            $("#ship3explode").attr("src","explode.gif");
+            $("#ship3explode").attr("src","resources/css/explode.gif");
             setTimeout(function() {
                 location.reload();
             },1200);
