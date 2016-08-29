@@ -16,7 +16,7 @@
 <body ng-app="drag-and-drop" ng-controller="oneCtrl">
   <button id="executeButton">Execute</button>
 <div id="panel">
-<div id="game">
+<div id="game" style="background-image:url('resources/css/stillwater.gif');">
   <div id="block">
   	<img id="blockShip" src="resources/css/ship1.gif">
   </div>
